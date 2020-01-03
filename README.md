@@ -7,7 +7,8 @@ Whenever a user visits the 'news-scraper' site, the app scrapes stories from a n
 News-scraper will scrape and display the following informations:
 
 - Headline - the title of the article
-- Summary - a short summary of the article
+- Artist - the artist of the image
+- Category - the category the article belongs to 
 - URL - the url to the original article
 - pictures - the images of the article
 
