@@ -15,4 +15,4 @@ News-scraper will scrape and display the following informations:
 Users are also ble to leave comments on the articles displayed and revisit them later. The comments will be saved to the database as well and associated with their articles. Users are also able to delete comments left on their chosen articles. All stored comments will be visible to every user.
 
 -------------------------------------------------------------------------------------------------------------------------------------
-:earth_americas: Heroku Deployment: 
+:earth_americas: Heroku Deployment: https://art-articles-scraper.herokuapp.com/
