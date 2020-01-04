@@ -1,0 +1,74 @@
+body {
+    background-image: url("/assets/images/clouds.jfif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 70px;
+    background-size: 100% 100%;
+}
+
+.jumbotron{
+    background-color: rgba(36, 33, 33, 0.7);
+    color: white;
+    border-style: solid;
+    border-color: black;
+}
+
+div.panel-heading{
+    background-color: black;
+    color: pink;
+}
+.panel{
+    background-color: rgb(253,199,187);
+	border-style: solid;
+	border-color: grey;
+    border-width: 2px;
+    border-radius: 8px; 
+
+}
+
+.btn-success, .btn-danger, .btn-primary{
+	color: rgb(255, 255, 255);
+    background: rgb(43,52,54);
+    font-family: 'Baskervville', serif;
+    border:rgb(43,52,54);
+    float: right;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2), 3px 3px 3px 3px rgba(0, 0, 0, 0.19);
+    margin: 0 0 0 10px; 
+}
+#scrape{
+	color: white;
+	background: rgba(8, 64, 87, 0.8);
+}
+.deleteNote {
+	display: inline-block;
+}
+
+.previousNotes {
+    display: inline-block;
+    width: 90%;
+}
+
+#scrape {
+    margin: 8px 0px;
+}
+
+h1, h4{
+    font-family: 'Special Elite', cursive;
+}
+
+h4 {
+    margin-bottom: 0px; 
+}
+
+h3, h5, p, a{
+    font-family: 'Baskervville', serif;
+}
+
+img {
+    width: 150px; 
+    height: 150px;
+    padding: 0px 0px 0px 0px; 
+    float: left;
+    border-radius: 8px; 
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2), 5px 5px 5px 5px rgba(0, 0, 0, 0.19);
+}
