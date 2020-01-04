@@ -41,8 +41,8 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-
-const databaseUri = "mongodb://localhost/ArtParasites"
+// const connectionString = mongodb+srv://LS:Lysia14055@cluster0-fs2sx.mongodb.net/test?retryWrites=true&w=majority;
+const databaseUri = "mongodb://<dbuser>:<dbpassword>@ds149279.mlab.com:49279/heroku_9mdm8fq1"
 
 const connectionURI = process.env.MONGODB_URI ? process.env.MONGODB_URI  : databaseUri
 mongoose.connect(connectionURI, {useNewUrlParser:true, useUnifiedTopology: true, useCreateIndex: true})
@@ -55,7 +55,7 @@ db.on("error", function(error) {
   console.log("Mongoose Error: ", error);
 });
 
-// Once logged in to the db through mongoose, log a success message
+// if logged in to the db through mongoose (log success message)
 db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
@@ -85,15 +85,15 @@ app.get("/saved", function(req, res) {
 
 // GET request to scrape the website
 app.get("/scrape", function(req, res) {
-  // First, we grab the body of the html with request
+  // grab the body of the html with request
   request("http://www.artparasites.com/", function(error, response, html) {
 
     const $ = cheerio.load(html);
   // console.log(html);
     $("article.loop").each(function(i, element) {
-      // console.log("element", element);
 
-      // Save an empty result object
+
+      // Save empty result object
       const result = {};
 
       result.category = $(element).children("header").children("h3").children("a").children("span").text();
@@ -122,10 +122,9 @@ app.get("/scrape", function(req, res) {
         res.send("Scrape Complete");
 
   });
-  // Tell the browser that we finished scraping the text
 });
 
-// This will get the articles we scraped from the mongoDB
+// This will get the articles scraped from the mongoDB
 app.get("/articles", function(req, res) {
   // Grab every doc in the Articles array
   Article.find({}, function(error, doc) {
@@ -142,17 +141,17 @@ app.get("/articles", function(req, res) {
 
 // Grab an article by it's ObjectId
 app.get("/articles/:id", function(req, res) {
-  // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
+
   Article.findOne({ "_id": req.params.id })
-  // ..and populate all of the notes associated with it
+  // populate all of the notes associated with it
   .populate("note")
-  // now, execute our query
+  // execute our query
   .exec(function(error, doc) {
     // Log any errors
     if (error) {
       console.log(error);
     }
-    // Otherwise, send the doc to the browser as a json object
+    // send the doc to the browser as a json object
     else {
       res.json(doc);
     }
