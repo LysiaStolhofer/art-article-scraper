@@ -41,7 +41,6 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-// const connectionString = mongodb+srv://LS:Lysia14055@cluster0-fs2sx.mongodb.net/test?retryWrites=true&w=majority;
 const databaseUri = "mongodb://<dbuser>:<dbpassword>@ds149279.mlab.com:49279/heroku_9mdm8fq1"
 
 const connectionURI = process.env.MONGODB_URI ? process.env.MONGODB_URI  : databaseUri
